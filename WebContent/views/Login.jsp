@@ -4,16 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Registration</title>
+<title>Login</title>
 </head>
 <body>
-
-<!-- This will hold all of the input for the registration page as well as a register button -->
-	<form method = "post" action = "Register">
-	
-	
-	</form>
-
 
 </body>
 </html>
