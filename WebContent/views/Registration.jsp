@@ -41,5 +41,12 @@
             </form>
         </div>
 
+<!-- This will hold all of the input for the registration page as well as a register button -->
+	<form method = "post" action = "Register">
+	
+	
+	</form>
+
+
 </body>
 </html>
