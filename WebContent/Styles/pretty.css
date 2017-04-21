@@ -1,0 +1,56 @@
+#gaming{
+	width: 100%;
+	margin: 0 auto;
+}
+
+#reg {
+	font-family: Arial, Sans-Serif;
+	background-color: #A9F886;
+}
+
+#log{
+	font-family: Arial, Sans-Serif;
+	background-color: #ffd700;
+}
+
+#index{
+	background-color: #ffe4e1;
+}
+
+#game{
+	color: white;
+	background-color: #000000;
+}
+
+#container {
+	width: 300px;
+	margin: 0 auto;
+}
+
+#logon {
+	width: 300px;
+	margin: 0 auto;
+}
+
+/* Nicely lines up the labels. */
+form label {
+	display: inline-block;
+	width: 140px;
+}
+
+form input[type="text"], form input[type="password"], form input[type="email"]
+	{
+	width: 160px;
+}
+
+form .line {
+	clear: both;
+}
+
+form .line.submit1 {
+	text-align: right;
+}
+
+form .line.submit2 {
+	text-align: left;
+}

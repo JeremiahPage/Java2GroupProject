@@ -3,28 +3,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-         <style type="text/css">
- 
-            body {font-family:Arial, Sans-Serif;}
- 
-            #container {width:300px; margin:0 auto;}
- 
-            /* Nicely lines up the labels. */
-            form label {display:inline-block; width:140px;}
- 
-            
-            form input[type="text"],
-            form input[type="password"],
-            form input[type="email"] {width:160px;}
- 
-            form .line {clear:both;}
-            form .line.submit {text-align:right;}
- 
-        </style>
+        
+         
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Registration</title>
+<link rel="stylesheet" type="text/css" href="../Styles/pretty.css">
+
 </head>
-<body>
+<body id="reg">
+
+
 	        <div id="container">
             <form>
                 <h1>Registration</h1>
@@ -38,12 +26,13 @@
                 <div class="line submit"><input type="submit" value="Submit" /></div>
  
                 <p>*Please make sure your details are correct before submitting the form and all fields marked with * are required!.</p>
+                
             </form>
         </div>
 
 <!-- This will hold all of the input for the registration page as well as a register button -->
 	<form method = "post" action = "Register">
-	
+	<form>Already registered? sign in <a href="registration_reset_goes_here"> here</a>
 	
 	</form>
 
