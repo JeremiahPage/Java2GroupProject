@@ -12,7 +12,7 @@
 <div class = "masterHeader"><jsp:include page="Master.jsp" /></div>
 
 
-<img src="/images/thumb.jpg" alt="Thumbs UP!" width="128" height="128">
+<img src="../images/thumbsup.gif" alt="Thumbs UP!" width="350" height="350">
 
 </body>
 </html>
