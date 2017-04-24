@@ -54,3 +54,7 @@ form .line.submit1 {
 form .line.submit2 {
 	text-align: left;
 }
+
+.error{
+	color:red;
+}

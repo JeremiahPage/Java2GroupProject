@@ -6,9 +6,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import businessClasses.DatabaseAccess;
+import businessClasses.User;
 
 /**
- * This sevlet handles all Registration requests
+ * This servlet handles all Registration requests
  */
 @WebServlet("/Register")
 public class RegistrationServlet extends HttpServlet {
@@ -22,23 +26,49 @@ public class RegistrationServlet extends HttpServlet {
      * If a get request enters this servlet it sends it to the Registration page
      */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("Registration.jsp");
+		response.sendRedirect("views/Registration.jsp");
 	}
 	/**
 	 * When posted to from Resgistration.jsp, validates input and creates a new user.
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Perform input checks here
-		//connect to database
-		//verify that email address isn't already used
-		//insert new user
-		//load new user into session
+		//Get Session
+		HttpSession session = request.getSession();
+		//Gets the submitted name and pwd
+		String fname = request.getParameter("firstname");
+		String lname = request.getParameter("lastname");
+		String uname = request.getParameter("username");
+		String pwd = request.getParameter("pwd");
+		String vpwd = request.getParameter("vpwd");
+		String email = request.getParameter("email");
+		//Holding variables
+		String fwdLoc,errorMessage;
 		
-		/*
-		 * Note:
-		 * Might be possible to create a static class to retrieve a user and add it to the session.
-		 * If not create an instance class with available methods to simplify process
-		 */
+		//perform input validation here
+		
+		
+		
+		if(pwd != vpwd){
+			fwdLoc = "views/Registration.jsp";
+			errorMessage="Passwords do not match";
+			session.setAttribute("Error", errorMessage);
+		}else{
+			//This means that the input has passed all initial validation and is being sent to the server
+			DatabaseAccess access = new DatabaseAccess();	
+			User tempUser = access.AddUser(fname, lname, uname, pwd, email);
+		
+			if(tempUser == null){
+				fwdLoc = "views/Registration.jsp";
+				errorMessage="Username already exists";
+				session.setAttribute("Error", errorMessage);
+			}else{
+				fwdLoc = "views/Index.jsp";
+				session.setAttribute("User", tempUser);
+			}
+		}
+		
+		response.sendRedirect(fwdLoc);	
+		
 	}
 
 }

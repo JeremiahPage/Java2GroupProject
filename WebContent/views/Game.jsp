@@ -8,6 +8,7 @@
 <link rel="stylesheet" type="text/css" href="../Styles/pretty.css">
 </head>
 <body id="game">
+<div class = "masterHeader"><jsp:include page="Master.jsp" /></div>
 <div id="gaming">
 This is the game page
 </div>

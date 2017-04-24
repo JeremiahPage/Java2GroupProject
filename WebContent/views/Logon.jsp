@@ -9,29 +9,28 @@
 <link rel="stylesheet" type="text/css" href="../Styles/pretty.css">
 </head>
 <body id="log">
-	<div id="logon">
-		<form>
+<div class = "masterHeader"><jsp:include page="Master.jsp" /></div>
+	
+	<div id="logon">	
+		<%@ page import="businessClasses.User" %>
+		<%if(session.getAttribute("User")==null){%>
+		
+		<form method="post" action="../Login">
 			<h1>Logon</h1>
-
-			<div class="line">
-				<label for="username">Username *: </label><input type="text"
-					id="username" />
-			</div>
-			<div class="line">
-				<label for="pwd">Password *: </label><input type="password" id="pwd" />
-			</div>
-
-
-			<div class="line submit2">
-				<input type="submit" value="Submit" />
-			</div>
-			<!-- will need to get the link for pw reset to go into this area below -->
-
-			<p>
-				Forgot password? Click <a
-					href="http://localhost:8080/Java2GroupProject/views/Logon.jsp">
-					here</a>
+			<div class="line"><label for="username">Username *: </label><input type="text" id="username" name="username" /></div>
+			<div class="line"><label for="pwd">Password *: </label><input type="password" id="pwd" name="pwd" /></div>
+			<div class="line submit2"> <input type="submit" value="Submit" /> </div>
 		</form>
+			
+			<%}else{
+			User user = (User)session.getAttribute("User");
+			String fname = user.getFname(); %>
+			<div>You are already logged in <%= fname %>.</div>
+			<div>If this is not you <a href= "../Logoff">Logout</a></div>
+			<%} %>
+
+			<div class="error"><%if(session.getAttribute("Error")==null){%><%}else{%><%=session.getAttribute("Error").toString()%><% session.removeAttribute("Error");%><%}%></div>
+			
 	</div>
 </body>
 </html>
