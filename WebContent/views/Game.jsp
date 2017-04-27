@@ -8,7 +8,19 @@
 <link rel="stylesheet" type="text/css" href="../Styles/pretty.css">
 </head>
 <body id="game">
-<div class = "masterHeader"><jsp:include page="Master.jsp" /></div>
+<div class="masterHeader"><jsp:include page="Master.jsp" /></div>
+
+	<%@ page import="businessClasses.User"%>
+	<%if(session.getAttribute("User")==null){%>
+	
+	<img src="../images/thumb.jpg" alt="Thumbs UP!" width="350"
+		height="350">
+	
+	<%}else{
+			User user = (User)session.getAttribute("User");
+			String uname = user.getUsername(); %>
+			<div><%= uname %> <a href= "../Logoff">Logout</a></div>
+			<%} %>
 <div id="gaming">
 This is the game page
 </div>
