@@ -20,10 +20,9 @@ public class Logoff extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = request.getRequestURL().toString();
 		HttpSession session = request.getSession();
 		session.removeAttribute("User");
-		response.sendRedirect(url);
+		response.sendRedirect("views/Index.jsp");
 	}
 
 

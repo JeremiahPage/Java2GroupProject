@@ -7,17 +7,20 @@ import java.sql.SQLException;
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
 
+import interfaces.Userbase;
+
 /**
  * This class is used to hold and control all access to the database
  *
  */
-public class DatabaseAccess {
+public class DatabaseAccess implements Userbase {
 	private String cString = "";
 	private String dUserName = "";
 	private String dPassword = "";
 	/**
 	 * This will be used to verify if a user exists and if their password is correct
 	 */
+	@Override
 	public User FindUser(String username, String password){
 		//Select Statement
 		try {
@@ -47,6 +50,7 @@ public class DatabaseAccess {
 	/**
 	 * This adds a new user to the database
 	 */
+	@Override
 	public User AddUser(String fname, String lname, String uname, String pwd, String email){
 		
 		String query = "Insert into Users (firstname, lastname, username, password, email) values (" + fname +", " + lname + ", " + uname + ", " + pwd + ", " + email + ");";

@@ -9,11 +9,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import businessClasses.DatabaseAccess;
+import businessClasses.HashTableAccess;
 import businessClasses.User;
 
 /**
  * This servlet handles all Registration requests
  */
+@SuppressWarnings("unused")
 @WebServlet("/Register")
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -48,13 +50,14 @@ public class RegistrationServlet extends HttpServlet {
 		
 		
 		
-		if(pwd != vpwd){
+		if(!pwd.equals(vpwd)){
 			fwdLoc = "views/Registration.jsp";
 			errorMessage="Passwords do not match";
 			session.setAttribute("Error", errorMessage);
 		}else{
 			//This means that the input has passed all initial validation and is being sent to the server
-			DatabaseAccess access = new DatabaseAccess();	
+			HashTableAccess access = new HashTableAccess();
+			//DatabaseAccess access = new DatabaseAccess();	
 			User tempUser = access.AddUser(fname, lname, uname, pwd, email);
 		
 			if(tempUser == null){

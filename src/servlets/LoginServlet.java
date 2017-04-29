@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import businessClasses.DatabaseAccess;
+import businessClasses.HashTableAccess;
 import businessClasses.User;
 
 /**
  * This Servlet handles all login requests 
  *
  */
+@SuppressWarnings("unused")
 @WebServlet("/Login")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -49,7 +51,8 @@ public class LoginServlet extends HttpServlet {
 		
 		
 		//Create an access class
-		DatabaseAccess access = new DatabaseAccess();
+		HashTableAccess access = new HashTableAccess();
+		//DatabaseAccess access = new DatabaseAccess();
 		//This method gets a user object if one exists
 		User tempUser = access.FindUser(tempUsername, tempPassword);
 		

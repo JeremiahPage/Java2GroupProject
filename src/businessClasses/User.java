@@ -10,8 +10,8 @@ public class User {
 	 * The fname is so the users name is displayed on the website
 	 * the username is so that it is easier to access the database if needed
 	 */
-	String fname;
-	String username;
+	private String fname;
+	private String username;
 	
 	/**
 	 * Default Constructor for the user Object
