@@ -11,11 +11,16 @@
 </head>
 <body id="index">
 	<div class="masterheader"><jsp:include page="Master.jsp" /></div>
-	<img src="../images/thumbsup.gif" alt="Thumbs UP!" width="350"
-		height="350">
-	
-
-
-			
+<div class="images">	<img src="../images/thumbsup.gif" alt="Thumbs UP!" width="250"
+		height="250">
+</div>
+<div class="images">
+Rock Paper Scissors
+</div>
+<div class="images">
+<a href="Game.jsp" 	>
+<input type="image" src="../images/rock-paper-scissors.png" alt="rps" width="150" height="150">
+</a>
+	</div>		
 </body>
 </html>
