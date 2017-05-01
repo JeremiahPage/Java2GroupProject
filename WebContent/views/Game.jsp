@@ -52,6 +52,13 @@
 	<tbody>
 
 		<tr>
+			<%if (session.getAttribute("wins") == null){ 
+				session.setAttribute("wins", 0);
+				session.setAttribute("losses", 0);
+				session.setAttribute("ties", 0);
+				session.setAttribute("gamesPlayed", 0);
+				session.setAttribute("percentageWon", 0);
+				}%>
 
 				<td>Your Stats</td>
 				<td></td>

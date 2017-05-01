@@ -34,6 +34,8 @@ public class RockPaperScissorsServlet extends HttpServlet {
 		super();
 	}
 
+	
+	
 	/**
 	* @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	*/
@@ -48,8 +50,7 @@ public class RockPaperScissorsServlet extends HttpServlet {
 		// Create session
 		HttpSession session = request.getSession();
 		
-		// If user selected reset the Scoreboard
-		if (request.getParameter("Reset") != null){
+		if (request.getParameter("Reset") != null){ 	// If user selected reset the Scoreboard
 			
 			// Reset wins, losses, ties, gamesPlayed, winning percentage to 0
 			session.setAttribute("wins", 0);
