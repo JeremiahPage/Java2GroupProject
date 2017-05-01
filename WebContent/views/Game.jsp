@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Game Page</title>
 <link rel="stylesheet" type="text/css" href="../Styles/pretty.css">
+<link rel="stylesheet" type="text/css" href="../Styles/customclasses.css">
 </head>
 <body id="game">
 	<div class="masterHeader"><jsp:include page="Master.jsp" /></div>
@@ -14,21 +15,16 @@
 	<%
 		if (session.getAttribute("User") == null) {
 	%>
-
-	<!--  <img src="../images/thumb.jpg" alt="Thumbs UP!" width="350"
-		height="350">-->
+	<div class="images required">You must log in to play rock paper scissors</div>
+	
 
 	<%
 		} else {
-			User user = (User) session.getAttribute("User");
-			String uname = user.getUsername();
+			
 	%>
-	<div><%=uname%>
-		<a href="../Logoff">Logout</a>
-	</div>
-	<%
-		}
-	%>
+	
+	
+	
 	<div id="gaming">Please Select Rock, Paper, or Scissors</div>
 	<br>       
 	<table>
@@ -89,5 +85,9 @@
 			Scoreboard</button>
 	</form>
 	<p>Result: ${message}</p>
+	
+	<%
+		}
+	%>
 </body>
 </html>
