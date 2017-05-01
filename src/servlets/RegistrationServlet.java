@@ -11,7 +11,7 @@ import javax.servlet.http.HttpSession;
 import businessClasses.DatabaseAccess;
 import businessClasses.HashTableAccess;
 import businessClasses.User;
-
+import businessClasses.PasswordValidation;;
 /**
  * This servlet handles all Registration requests
  */
@@ -44,12 +44,13 @@ public class RegistrationServlet extends HttpServlet {
 		String vpwd = request.getParameter("vpwd");
 		String email = request.getParameter("email");
 		//Holding variables
-		String fwdLoc,errorMessage;
+		String fwdLoc = "",errorMessage;
 		
 		//perform input validation here
 		
-		
-		
+		PasswordValidation pass = new PasswordValidation();
+		pass.NewPassword(pwd);
+		if(pass.restrictions()){
 		if(!pwd.equals(vpwd)){
 			fwdLoc = "views/Registration.jsp";
 			errorMessage="Passwords do not match";
@@ -69,7 +70,13 @@ public class RegistrationServlet extends HttpServlet {
 				session.setAttribute("User", tempUser);
 			}
 		}
-		
+		}else{
+			errorMessage=pass.GetErro();
+			log(errorMessage);
+			fwdLoc = "views/Registration.jsp";
+			session.setAttribute("Error", errorMessage);
+			
+		}
 		response.sendRedirect(fwdLoc);	
 		
 	}
